@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-
+#include <Windows.h>
 using namespace std;
 
 
@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "RU");
+	SetConsoleCP(1251);
 	int task = 0;
 	cout << "Введите номер задания ";
 	cin >> task;
@@ -74,9 +75,43 @@ int main()
 	 Создайте массив из пяти таких структур, ввод данных запросите с клавиатуры. 
 	 Выведите количество точек красного цвета (r), координата x которых меньше 10.
 	 */
+		const int SIZE = 5;
+		int count_red = 0;
+		int sum = 0;
+		struct garland
+		{
+			int x;
+			int y;
+			char color;
 
+		};
+		garland myGarland[SIZE];
+		cout << "Введите координаты " << SIZE << " точек (x, y)  и цвет (R, G, B)" << endl;
+		for (int i = 0; i < SIZE; i++)
+		{
+			cout << "Координаты: " << i + 1 << "- ой точки:   " << endl;
+			cout << "x - ";
+			cin >> myGarland->x;
+			cout << "y - ";
+			cin >> myGarland->y;
+			cout << "цвет - ";
+			cin >> myGarland[i].color;
+			sum += myGarland->x;
 
+		}
+		
 
+			for (int i = 0; i < SIZE; i++)
+			{
+				if (myGarland[i].color == 'R' && myGarland[i].x < 10)         // Проверка выполнения условия
+				{
+					count_red++;                                              // Счетчик
+				}
+			}
+		
+
+		cout<< "Количество точек красного цвета (R)= " << count_red << endl;
+		cout << "Сумма точек 'R.x'= " << sum;                                 //Вывод суммы просто для себя
 		break;
 	}
 
@@ -88,6 +123,41 @@ int main()
 		Программа должна запрашивать ввод класса и выводить в столбик с новой строки 
 		фамилии учащихся запрашиваемого класса.
 		*/
+
+		const int SIZE = 3;
+		int num_classroom = 0;
+		struct student
+		{
+			char name[10];
+			char surname[10];
+			int  classroom;
+		} student_vuz[SIZE];
+
+		cout << "Введите Имя, Фамилию, номер класса " << SIZE<< " студентов"<< endl;
+		for (int i = 0; i < SIZE; i++)
+		{
+			cout << "Имя" << endl;
+			cin >> student_vuz[i].name;
+			cout << "Фамилия" << endl;
+			cin >> student_vuz[i].surname;
+			cout << "Класс" << endl;
+			cin >> student_vuz[i].classroom;
+
+		}
+
+		cout << "Введите номер класса ";
+		cin >> num_classroom;
+		cout << "Ученики " << num_classroom << " класса: " << endl;
+		for (int i = 0; i < SIZE; i++)
+		{
+			
+		  if ( student_vuz[i].classroom == num_classroom  )
+			  {
+			    cout << student_vuz[i].surname<< endl;
+			  } 
+		}
+		
+
 
 
 		break;
