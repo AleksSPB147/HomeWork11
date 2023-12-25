@@ -238,11 +238,10 @@ int main()
 		*/
 		const int SIZE = 3;
 		struct point { int x, y; };
-		point A, point[SIZE]; int i, imin;
-		double r, rmin = 1e303;
-		//srand(time(nullptr));
-		//cout << "\033[1m" << setprecision(15) << fixed;
-
+		point A, point[SIZE]; 
+		int i, imin;
+		double r, rmin = pow(2., (int) 3);
+		
 		cout << "Введите координаты точек:" << endl;
 		for (int i = 0; i < SIZE; i++)
 		{
