@@ -2,6 +2,10 @@
 #include <Windows.h>
 #include <conio.h>
 #include <string>
+#include <cstdlib> 
+#include <iomanip> 
+#include <ctime> 
+#include <cmath> 
 using namespace std;
 
 
@@ -232,6 +236,45 @@ int main()
          x=
          y=
 		*/
+		const int SIZE = 3;
+		struct point { int x, y; };
+		point A, point[SIZE]; int i, imin;
+		double r, rmin = 1e303;
+		//srand(time(nullptr));
+		//cout << "\033[1m" << setprecision(15) << fixed;
+
+		cout << "Введите координаты точек:" << endl;
+		for (int i = 0; i < SIZE; i++)
+		{
+			cout << "Координаты: " << i + 1 << "- ой точки:   " << endl;
+			cout << "x= ";
+			cin >> point[i].x;
+			cout << "y= ";
+			cin >> point[i].y;
+					
+		}
+		for (int i = 0; i < SIZE; i++)
+		{
+			cout << i + 1 << "): ";
+			cout << "x= " << point[i].x << " " << "y= " << point[i].y << " " << endl;
+		}
+
+		cout << "Введите координаты точки А:" << endl;
+		cout << "x = ";
+		cin >> A.x;
+		cout << "y = "; 
+		cin >> A.y;
+		for (i = 0; i < SIZE; i++)
+		{
+			r = pow(point[i].x - A.x, 2) + pow(point[i].y - A.y, 2);
+			if (r < rmin) { rmin = r; imin = i; }
+		}
+		cout << "Точка находящаяся на минимальном расстоянии от точки  A это точка № "
+			<< imin + 1 << ".\nКоординаты точки № " << imin + 1 << ":\nx =" << setw(3) <<
+			point[imin].x << "\ny =" << setw(3) << point[imin].y << endl;
+		    cin.get(); cin.get(); return 0;
+
+
 
 
 		break;
@@ -243,16 +286,64 @@ int main()
 		break;
 	}
 
-
-
-
-
-
 }
 
 
 
 
+
+
+
+
+/*
+double r;
+
+		int i, imin, rmin = 1e303;
+		const int SIZE = 3;
+		struct point
+		{
+			double x;
+			double y;
+
+		}myPoint[SIZE],myPoit_A ;
+		cout << "Введите координаты точек:" << endl;
+		for (int i = 0; i < SIZE; i++)
+		{
+			cout << "Координаты: " << i + 1 << "- ой точки:   " << endl;
+			cout << "x= ";
+			cin >> myPoint[i].x;
+			cout << "y= ";
+			cin >> myPoint[i].y;
+		}
+		for (int i = 0; i < SIZE; i++)
+		{
+			cout << i + 1 << "): ";
+			cout<<"x= " << myPoint[i].x << " " << "y= " << myPoint[i].y << " " << endl;
+		}
+
+
+		cout << "Введите координаты точки А:" << endl;
+			cout << "x= ";
+			cin >> myPoit_A.x;
+			cout << "y= ";
+			cin >> myPoit_A.y;
+			cout << "Точка А "<<"x= "<< myPoit_A.x<< " y= "<< myPoit_A.y << endl;
+			for (int i = 0; i < SIZE; i++)
+			{
+				r = pow(myPoint[i].x - myPoit_A.x, 2) + pow(myPoint[i].y - myPoit_A.y, 2);
+				if (r < rmin)
+				{
+					rmin = r;
+					imin = SIZE;
+				}
+			}
+
+			cout << r;
+			cout << "The point at the minimum distance from point A is point "
+				<< imin + 1 << ".\nIts coordinates are:\nx =" << setw(20) <<
+				myPoint[imin].x << "\ny =" << setw(20) << myPoint[imin].y << endl;
+			cin.get(); cin.get(); return 0;
+*/
 
 
 
