@@ -157,9 +157,6 @@ int main()
 			  } 
 		}
 		
-
-
-
 		break;
 	}
 	case 5:
@@ -170,6 +167,23 @@ int main()
 		Программа должна запрашивать год издания и выводить в отдельных строках 
 		количество книг выпущенных после указанного года и их стоимость (сумму цен).
 		*/
+		cout << "Задание № 5";
+		const int SIZE = 5;
+		struct lib
+		{
+			char title[20];
+			char autor[20];
+			int price;
+			int year;
+		}   ;
+		lib myLib[SIZE];
+		cout << "Укажите автора" << endl;
+		//cin >> myLib.;
+		
+
+
+
+
 
 
 		break;
