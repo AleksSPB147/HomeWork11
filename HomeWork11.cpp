@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <Windows.h>
+#include <conio.h>
+#include <string>
 using namespace std;
 
 
@@ -167,18 +169,49 @@ int main()
 		Программа должна запрашивать год издания и выводить в отдельных строках 
 		количество книг выпущенных после указанного года и их стоимость (сумму цен).
 		*/
-		cout << "Задание № 5";
-		const int SIZE = 5;
+		cout << "Задание № 5" << endl;
+		const int SIZE = 2;
+		int request_year = 0;
+		int count_lib = 0;
+		int lib_sum = 0;
 		struct lib
-		{
-			char title[20];
-			char autor[20];
+		{ 
+			char  title[20] ;
+			string autor ;
 			int price;
 			int year;
-		}   ;
-		lib myLib[SIZE];
-		cout << "Укажите автора" << endl;
-		//cin >> myLib.;
+		}myLib[SIZE];
+		 
+
+		for(int i = 0; i < SIZE; i++)
+		{
+			cout << "Укажите название книги" << endl;
+			//cin >> myLib[i].title;
+			cin.getline(myLib[i].title,20);
+			
+			cout << "Укажedfeeите автора данного произведения" << endl;
+			cin >> myLib[i].autor;
+			cout << "Укажите стоимость книги" << endl;
+			cin >> myLib[i].price;
+			cout << "Укажите год выпуска в тираж" << endl;
+			cin >> myLib[i].year;
+		}
+
+		cout << "Укажите искомый год выпуска книги"<< endl;
+		cin >> request_year;
+		for (int i = 0; i < SIZE; i++)
+		{
+			if (myLib[i].year == request_year  )
+			{
+				count_lib++;
+				lib_sum += myLib[i].price;
+			}
+
+
+		}
+			
+		cout<< "В каталоге книг: " << count_lib << " шт " << endl;
+		cout<< "Сумма книг:= " << lib_sum;
 		
 
 
