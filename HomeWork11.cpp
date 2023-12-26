@@ -240,8 +240,11 @@ int main()
 		struct point { int x, y; };
 		point A, point[SIZE]; 
 		int i, imin;
-		double r, rmin = pow(2., (int) 3);
-		
+		double r,
+			//rmin = pow(2., (int)3);
+		rmin = 1e303;
+		cout << "rmin = " << rmin << endl;
+		//cout << "rmin1 = " << rmin1 << endl;
 		cout << "Введите координаты точек:" << endl;
 		for (int i = 0; i < SIZE; i++)
 		{
@@ -266,8 +269,21 @@ int main()
 		for (i = 0; i < SIZE; i++)
 		{
 			r = pow(point[i].x - A.x, 2) + pow(point[i].y - A.y, 2);
-			if (r < rmin) { rmin = r; imin = i; }
+			cout << "  r  " << r << " < " << rmin << endl;
+			if (r < rmin) 
+			{ 
+				rmin = r;  // При первом же проходе в цикле записываем результат 'r'  в 'rmin' 
+			               
+				imin = i;  // Счетчик для определения номера координаты
+			}   
+			
+			cout << imin << " " << i;
+
 		}
+
+		cout << " Сумма r = " << r << endl;
+		cout << "rmin = " << rmin << endl;
+		//cout << "rmin1 = " << rmin1 << endl;
 		cout << "Точка находящаяся на минимальном расстоянии от точки  A это точка № "
 			<< imin + 1 << ".\nКоординаты точки № " << imin + 1 << ":\nx =" << setw(3) <<
 			point[imin].x << "\ny =" << setw(3) << point[imin].y << endl;
