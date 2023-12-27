@@ -33,6 +33,51 @@ int main()
       Учащийся <Имя> <Фамилия> <год рождения> года рождения переведен в <номер класса> <литера класса> класс
 	 */
 
+		const int SIZE = 3;
+		int num_classroom = 0;
+		int num_class;
+		struct student
+		{
+			char name[10];
+			char surname[10];
+			int year;
+			int class_1;
+			char liter[1];
+			int nov_class;
+			void print()
+			{
+				cout << "Учащийся "<< name<<" " << surname << " " << year << " года рождения переведен в " << nov_class << liter << " класс";
+
+			}
+
+
+		} student_school[SIZE];
+		cout << "Введите данные об ученике: " << endl;
+		
+		cout << "Имя" << endl;
+		cin >> student_school->name;
+		cout << "Фамилия" << endl;
+		cin >> student_school->surname;
+		cout << "Год рождения" << endl;
+		cin >> student_school->year;
+		cout << "Класс" << endl;
+		cin >> student_school->class_1;
+		cout << "Литера" << endl;
+		cin >> student_school->liter;
+		
+		cout << " Укажите на сколько классов перевести: " << endl;
+		cin >> num_class;
+		if ((student_school->class_1 + num_class) > 11)
+		{
+			cout << "Ошибка перевода";
+		}
+		else
+		{
+			student_school->nov_class = (student_school->class_1 + num_class);
+
+		}
+		student_school->print();
+
 		break;
 	}
 	case 2:
