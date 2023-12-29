@@ -33,8 +33,8 @@ int main()
       Учащийся <Имя> <Фамилия> <год рождения> года рождения переведен в <номер класса> <литера класса> класс
 	 */
 
-		const int SIZE = 3;
-		int num_classroom = 0;
+		
+		
 		int num_class;
 		struct student
 		{
@@ -51,32 +51,32 @@ int main()
 			}
 
 
-		} student_school[SIZE];
+		} student_school;
 		cout << "Введите данные об ученике: " << endl;
 		
 		cout << "Имя" << endl;
-		cin >> student_school->name;
+		cin >> student_school.name;
 		cout << "Фамилия" << endl;
-		cin >> student_school->surname;
+		cin >> student_school.surname;
 		cout << "Год рождения" << endl;
-		cin >> student_school->year;
+		cin >> student_school.year;
 		cout << "Класс" << endl;
-		cin >> student_school->class_1;
+		cin >> student_school.class_1;
 		cout << "Литера" << endl;
-		cin >> student_school->liter;
+		cin >> student_school.liter;
 		
 		cout << " Укажите на сколько классов перевести: " << endl;
 		cin >> num_class;
-		if ((student_school->class_1 + num_class) > 11)
+		if ((student_school.class_1 + num_class) > 11)
 		{
 			cout << "Ошибка перевода";
 		}
 		else
 		{
-			student_school->nov_class = (student_school->class_1 + num_class);
+			student_school.nov_class = (student_school.class_1 + num_class);
 
 		}
-		student_school->print();
+		student_school.print();
 
 		break;
 	}
@@ -219,14 +219,14 @@ int main()
 		количество книг выпущенных после указанного года и их стоимость (сумму цен).
 		*/
 		cout << "Задание № 5" << endl;
-		const int SIZE = 2;
+		const int SIZE = 5;
 		int request_year = 0;
 		int count_lib = 0;
 		int lib_sum = 0;
 		struct lib
 		{ 
 			char  title[20] ;
-			string autor ;
+			char autor[10] ;
 			int price;
 			int year;
 		}myLib[SIZE];
@@ -235,10 +235,10 @@ int main()
 		for(int i = 0; i < SIZE; i++)
 		{
 			cout << "Укажите название книги" << endl;
-			//cin >> myLib[i].title;
-			cin.getline(myLib[i].title,20);
+		    cin >> myLib[i].title;
 			
-			cout << "Укажedfeeите автора данного произведения" << endl;
+			
+			cout << "Укажите автора данного произведения" << endl;
 			cin >> myLib[i].autor;
 			cout << "Укажите стоимость книги" << endl;
 			cin >> myLib[i].price;
@@ -281,7 +281,7 @@ int main()
          x=
          y=
 		*/
-		const int SIZE = 3;
+		const int SIZE = 5;
 		struct point { int x, y; };
 		point A, point[SIZE]; 
 		int i, imin;
